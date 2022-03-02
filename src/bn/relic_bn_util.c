@@ -247,7 +247,7 @@ void bn_print(const bn_t a) {
 		util_print("-");
 	}
 	if (a->used == 0) {
-		util_print("0\n");
+		util_print("0");
 	} else {
 #if WSIZE == 64
 		util_print_dig(a->dp[a->used - 1], 0);
@@ -260,7 +260,6 @@ void bn_print(const bn_t a) {
 			util_print_dig(a->dp[i], 1);
 		}
 #endif
-		util_print("\n");
 	}
 }
 
