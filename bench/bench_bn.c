@@ -710,13 +710,13 @@ static void arith(void) {
 	}
 	BENCH_END;
 
-    SMLT = BN_MXP_SIM_LOT_LARGER; util_print("(%d SIMLOT) ", SMLT);
+    SMLT = BN_MXP_SIM_LOT_LARGER; util_print("(%d SIM_LOT) ", SMLT);
 	BENCH_RUN("bn_mxp_sim_lot") {
 		BENCH_ADD(bn_mxp_sim_lot(c, (const bn_t*)t, (const bn_t*)u, b, SMLT));
     }
 	BENCH_END;
     
-	bn_gen_prime(crt->p, RLC_BN_BITS / 2);
+    bn_gen_prime(crt->p, RLC_BN_BITS / 2);
 	bn_gen_prime(crt->q, RLC_BN_BITS / 2);
 	bn_mul(crt->n, crt->p, crt->q);
 	bn_mod_inv(crt->qi, crt->q, crt->p);
